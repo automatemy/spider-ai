@@ -1,0 +1,8 @@
+providers:
+  - python
+
+setup:
+  - pip install -e .
+
+start:
+  cmd: scraperai
