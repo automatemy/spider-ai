@@ -1,8 +1,19 @@
 providers:
-  - python
+  - node  # Seems to be an Electron/Node.js project
+  - python  # May have Python components
 
 setup:
-  - pip install -e .
+  - echo "Setting up EasySpider project"
+  - |
+    if [ -f "package.json" ]; then
+      npm install
+    fi
+  - |
+    if [ -d "ExecuteStage" ]; then
+      cd ExecuteStage
+      pip install -r requirements.txt
+      cd ..
+    fi
 
 start:
-  cmd: scraperai
+  cmd: echo "EasySpider setup complete. No default start command."
